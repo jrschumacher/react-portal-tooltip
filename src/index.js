@@ -3,6 +3,37 @@ import ReactDOM from 'react-dom'
 import isClient from 'is-client'
 import assign from 'object-assign'
 
+const BUILDSTYLE = {
+  arrowContainer: {
+    transform: 'translate(21px, -9px) rotate(45deg)',
+    transformOrigin: '0 0',
+    boxShadow: 'rgba(0, 0, 0, 0.298039) 0px 0px 8px',
+    display: 'block',
+    height: '11.31px',
+    overflow: 'hidden',
+    position: 'absolute',
+    top: 1,
+    width: '11.31px'
+  },
+  arrowImageContainer: {
+    width: 370,
+    height: 159,
+    transform: 'rotate(-45deg) translate(-21px, -3px)',
+    transformOrigin: '0 0',
+    top: 0,
+    position: 'relative',
+    overflow: 'hidden'
+  },
+  arrowImage: {
+    left: -11,
+    height: '100%',
+    width: 'auto',
+    minHeight: '100%',
+    position: 'relative',
+    border: 0
+  }
+}
+
 class Card extends React.Component {
   static PropTypes = {
     active: PropTypes.bool,
@@ -427,8 +458,11 @@ class Card extends React.Component {
       <div style={style} onMouseEnter={::this.handleMouseEnter} onMouseLeave={::this.handleMouseLeave}>
         {this.props.arrow ? (
           <div>
-            <span style={arrowStyle.fgStyle}/>
-            <span style={arrowStyle.bgStyle}/>
+            <div style={BUILDSTYLE.arrowContainer}>
+              <div className='uiScaledImageContainer _7lj' style={BUILDSTYLE.arrowImageContainer}>
+                <img className='scaledImageFitHeight img' src='https://s1-ssl.dmcdn.net/LRIoz/x250-gOV.jpg'  style={BUILDSTYLE.arrowImage} alt='Kevin Holsts photo.' width='393' height='159' />
+              </div>
+            </div>
           </div>)
           : null
         }
